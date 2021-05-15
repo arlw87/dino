@@ -13,6 +13,32 @@ module.exports = {
                 test: '/\.js$',
                 exclude: '/node_modules',
                 loader: 'babel-loader'
+            },
+            //images
+            {
+                test: /\.jpg$/,
+                type: 'asset/resource',
+            },
+            {
+                test: /\.png$/,
+                type: 'asset/resource',
+            },
+            {
+                test: /\.html$/,
+                loader: 'html-loader'
+            },
+            {
+                test: /\.scss$/,
+                use: [{
+                    loader: "style-loader"
+                }, {
+                    loader: "css-loader"
+                }, {
+                    loader: "sass-loader",
+                    options: {
+                        implementation: require("sass"),
+                    }
+                }]
             }
         ],
     },

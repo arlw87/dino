@@ -1,0 +1,26 @@
+@import "reset";
+@import "form";
+
+body {
+  background: rgb(15, 121, 9);
+  background: linear-gradient(
+    33deg,
+    rgba(15, 121, 9, 1) 2%,
+    rgba(0, 249, 255, 1) 94%
+  );
+  background-size: cover;
+  background-repeat: none;
+  color: black;
+  font-family: "Roboto", sans-serif;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+}
+
+.shadow {
+  // box-shadow: 3px 4px 30px 5px rgba(138,133,138,1);
+  -webkit-box-shadow: 2px 3px 6px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 3px 6px 2px rgba(0, 0, 0, 0.3);
+}

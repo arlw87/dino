@@ -1,0 +1,117 @@
+$title-font: 13rem;
+$fun-text: "Amatic SC", cursive;
+$accent-color: rgb(243, 114, 50);
+
+#form-section {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  #title-section {
+    display: flex;
+
+    h1 {
+      text-align: center;
+      font-size: $title-font;
+      margin: 0;
+      font-family: "Amatic SC", cursive;
+      font-weight: 700;
+      margin: 10px;
+      font-family: $fun-text;
+    }
+
+    img {
+      height: $title-font;
+      width: auto;
+      margin: auto 0;
+    }
+  }
+
+  > h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 10px;
+  }
+
+  form {
+    background-color: #ffffff;
+    border-radius: 2px;
+    // height: 27%;
+    width: 30%;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1% 0;
+    color: #000;
+
+    h3 {
+      color: $accent-color;
+      margin: 0;
+      font-family: $fun-text;
+      font-size: 3rem;
+    }
+
+    > div {
+      width: 90%;
+
+      //border: 2px red solid;
+
+      label {
+        font-weight: 600;
+        font-family: $fun-text;
+        font-size: 1.5rem;
+      }
+
+      input {
+        font-size: 2rem;
+        padding: 0;
+        width: 100%;
+        margin: 5px 0 10px 0;
+        background-color: #f3f3f3;
+        border: none;
+        border-radius: 3px;
+        padding: 5px;
+        color: #828282;
+        // font-family: "Roboto", sans-serif;
+        font-family: $fun-text;
+
+        &:focus {
+          background-color: f3f3f3;
+        }
+
+        &:input:-internal-autofill-selected {
+          background-color: f3f3f3 !important;
+        }
+      }
+    }
+
+    input[type="submit"] {
+      margin: 20px 0 20px 0;
+      font-family: $fun-text;
+      background-color: $accent-color;
+      border: none;
+      font-size: 3rem;
+    }
+  }
+}
+
+#metrics {
+  //border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+
+  div {
+    // border: 1px blue solid;
+    width: 45%;
+
+    input {
+      width: 100%;
+    }
+  }
+}

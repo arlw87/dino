@@ -1,3 +1,44 @@
-Hello World
-
-My name is andrew
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Dino Comparitor</title>
+        <meta name="viewport" content="width=device-width", initial-sale=1/>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <main>
+            <section id="form-section">
+                <div id="title-section">
+                    <img src='../static/images/anklyosaurus.png'>
+                    <h1> Dinosaurs! </h1>
+                    <img src='../static/images/stegosaurus.png'>
+                </div>
+                <!-- <h2>How do YOU compare?</h2> -->
+                <form class="shadow">
+                    <h3>Enter your human stats</h3>
+                    <div>
+                        <label for="name">Name</label>
+                        <input id="name" type="text" required="required">
+                    </div>
+                    <div id="metrics">
+                        <div>
+                            <label for="height">Height</label>
+                            <input id="height" type="text" required="required" placeholder="in cm">
+                        </div>
+                        <div>
+                            <label for="weight">Weight</label>
+                            <input id="weight" type="text" required="required" placeholder="in kg">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="year">Year of Birth</label>
+                        <input id="year" type="date" required="required">
+                    </div>
+                    <input type="submit" value='Compare Me!'></input>
+                </form>
+            </section>
+        </main>
+    </body>
+</html>
