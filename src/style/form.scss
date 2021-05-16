@@ -68,7 +68,8 @@ $accent-color: rgb(243, 114, 50);
         font-size: 1.5rem;
       }
 
-      input {
+      input,
+      select {
         font-size: 2rem;
         padding: 0;
         width: 100%;
@@ -76,7 +77,7 @@ $accent-color: rgb(243, 114, 50);
         background-color: #f3f3f3;
         border: none;
         border-radius: 3px;
-        padding: 5px;
+        padding: 5px 0;
         color: #828282;
         // font-family: "Roboto", sans-serif;
         font-family: $fun-text;
@@ -89,6 +90,10 @@ $accent-color: rgb(243, 114, 50);
           background-color: f3f3f3 !important;
         }
       }
+    }
+
+    select {
+      color: black !important;
     }
 
     input[type="submit"] {

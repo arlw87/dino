@@ -66,18 +66,18 @@ window.onload = (event) => {
                 const nameInput = document.querySelector('#name');
                 const heightInput = document.querySelector('#height');
                 const weightInput = document.querySelector('#weight');
-                const dateOfBirthInput = document.querySelector('#year');
+                const dietInput = document.querySelector('#diet');
 
                 const name = nameInput.value;
                 const height = heightInput.value;
                 const weight = weightInput.value;
-                const dateOfBirth = dateOfBirthInput.value;
+                const diet = diet.value;
 
                 return {
                     name: name,
                     height: height,
                     weight: weight,
-                    dob: dateOfBirth
+                    diet: diet
                 }
 
             })();
@@ -128,6 +128,12 @@ Dino.prototype = {
             return `${this.species} is ${sizeDifference} times heavier than you`;
         } else {
             return `${this.species} is ${humanHeight / this.height} times lighter than you`;
+        }
+    },
+
+    compareAge: function(humanDateOfBirth){
+        const epochYears = {
+
         }
     }
 
