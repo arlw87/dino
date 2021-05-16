@@ -1,4 +1,67 @@
+//wait for the page to load before you run the js
+window.onload = (event) => {
+    //IIFE to protect against the global scope
+    (function(){
+        
+        //add an event listener to the submit button
+        const submitButton = document.querySelector('#compareMe');
+        submitButton.addEventListener('click', (event) => {
 
+            event.preventDefault();
+            
+            //revealing pattern to stored and access the form data
+            const formData = (function(){
+
+                //get form data
+                const nameInput = document.querySelector('#name');
+                const heightInput = document.querySelector('#height');
+                const weightInput = document.querySelector('#weight');
+                const dateOfBirthInput = document.querySelector('#year');
+
+                const name = nameInput.value;
+                const height = heightInput.value;
+                const weight = weightInput.value;
+                const dateOfBirth = dateOfBirthInput.value;
+
+                return {
+                    name: name,
+                    height: height,
+                    weight: weight,
+                    dob: dateOfBirth
+                }
+
+            })();
+
+            console.log(formData);
+
+            const dino1 = new Dino('Dog');
+            console.log(dino1);
+
+        });
+
+    })();
+}
+
+
+//Dino Constructor
+// function Dino(species, weight, height, diet, where, when, fact){
+//     this.species = species;
+//     this.weight = weight;
+//     this.height = height;
+//     this.diet = diet;
+//     this.where = where;
+//     this.when = when;
+//     this.fact = fact;
+// }
+
+function Dino(species){
+    this.species = species;
+}
+
+console.log(Dino);
+
+    
+    
     // Create Dino Constructor
 
 
