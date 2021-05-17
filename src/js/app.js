@@ -64,8 +64,8 @@ window.onload = (event) => {
                 const dietInput = document.querySelector('#diet');
 
                 const name = nameInput.value;
-                const height = heightInput.value;
-                const weight = weightInput.value;
+                const height = parseInt(heightInput.value);
+                const weight = parseInt(weightInput.value);
                 const diet = dietInput.value;
 
                 return {
@@ -83,12 +83,18 @@ window.onload = (event) => {
             //Great dino titles
             //ignore the pigeon tile fact for now
             const tileArray = dinoArray.map((dino) => {
-                return new Tile(dino.name, dino.image, "A nice fact");
+                const randomFact = generateRandomFact(dino, human);
+                return new Tile(dino.species, dino.image, randomFact);
             });
 
             const humanTile = new Tile(human.name, human.image, "");
 
+            //these will need to be put in the right order
+            tileArray.push(humanTile);
 
+            console.log(tileArray);
+
+            //go through the array and call the generate html method to add the tiles to the DOM
 
             //display the tiles 
 
@@ -97,6 +103,33 @@ window.onload = (event) => {
     }
 
     console.log(imageObject);
+
+//random fact generator
+function generateRandomFact(dinoObject, humanObject){
+
+    if (dinoObject.species === 'Pigeon'){
+        return dinoObject.fact;
+    }
+
+    console.log(humanObject);
+    console.log(dinoObject);
+    //generate all facts and add to array
+    const factArray = [
+        `The ${dinoObject.species} lived in the ${dinoObject.when} period`,
+        `The ${dinoObject.species} lived in the ${dinoObject.where} region`,
+        `${dinoObject.fact}`,
+        dinoObject.compareHeight(humanObject.height),
+        dinoObject.compareWeight(humanObject.weight),
+        dinoObject.compareDiet(humanObject.diet)
+    ];
+    console.log(factArray);
+    //then pick a fact from that array at random
+    //generate random number
+    let randomNum = Math.floor(Math.random() * 6); 
+
+    //pick a random fact
+    return factArray[randomNum];
+}
 
 //Dino Constructor
 function Dino(species, weight, height, diet, where, when, fact){
@@ -117,6 +150,10 @@ Dino.prototype = {
 
     //three methods to compare human data to dino data
     compareHeight: function(humanHeight){
+
+        console.log(`${humanHeight}, is human height`);
+        console.log(`${this.height}, is dino height`);
+
         const sizeDifference = this.height / humanHeight;
 
         if (sizeDifference > 1){
@@ -131,13 +168,15 @@ Dino.prototype = {
         if (sizeDifference > 1){
             return `${this.species} is ${sizeDifference} times heavier than you`;
         } else {
-            return `${this.species} is ${humanHeight / this.height} times lighter than you`;
+            return `${this.species} is ${humanWeight / this.height} times lighter than you`;
         }
     },
 
-    compareAge: function(humanDateOfBirth){
-        const epochYears = {
-
+    compareDiet: function(HumanDiet){
+        if (HumanDiet == this.diet){
+            return `${this.species} was a ${this.diet} like you!`
+        } else {
+            return `${this.species} has a different diet to you!`
         }
     }
 
