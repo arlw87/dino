@@ -78,10 +78,17 @@ window.onload = (event) => {
             })();
 
             //generate human object
-            const human = new Human(formData.name, formData.height, formData.weight, formData.diet);
+            const human = new Human(formData.name, formData.height, formData.weight, formData.diet, imageObject.human);
             
-            console.log(human);
-            //generate tiles
+            //Great dino titles
+            //ignore the pigeon tile fact for now
+            const tileArray = dinoArray.map((dino) => {
+                return new Tile(dino.name, dino.image, "A nice fact");
+            });
+
+            const humanTile = new Tile(human.name, human.image, "");
+
+
 
             //display the tiles 
 
@@ -136,12 +143,29 @@ Dino.prototype = {
 
 }
 
-function Human(name, height, weight, diet){
+//function constructor for the human objects
+function Human(name, height, weight, diet, image){
     this.name = name;
     this.height = height;
     this.weight = weight;
     this.diet = diet;
+    this.image = image;
 }
+
+//function constructor for the tiles. 
+//the tiles will dispplay the name, image and a fact 
+function Tile(name, image, fact){
+    this.name = name;
+    this.image = image;
+    this.fact = fact;
+}
+
+Tile.prototype = {
+    generateHTML: function(){
+        return `SomeHTMLHere`;
+    }
+}
+
 
 
   
