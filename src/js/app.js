@@ -47,11 +47,6 @@ window.onload = (event) => {
         console.log(dinoArray[0].compareHeight(69));
         console.log(dinoArray[0].compareWeight(150));
     
-        //load the JSON file
-        //const dinosObject = loadJson('jsonFile');
-
-        //create an array of Dino objects from the JSON file
-
 
         //add an event listener to the submit button
         const submitButton = document.querySelector('#compareMe');
@@ -71,7 +66,7 @@ window.onload = (event) => {
                 const name = nameInput.value;
                 const height = heightInput.value;
                 const weight = weightInput.value;
-                const diet = diet.value;
+                const diet = dietInput.value;
 
                 return {
                     name: name,
@@ -83,7 +78,9 @@ window.onload = (event) => {
             })();
 
             //generate human object
-
+            const human = new Human(formData.name, formData.height, formData.weight, formData.diet);
+            
+            console.log(human);
             //generate tiles
 
             //display the tiles 
@@ -139,7 +136,12 @@ Dino.prototype = {
 
 }
 
-
+function Human(name, height, weight, diet){
+    this.name = name;
+    this.height = height;
+    this.weight = weight;
+    this.diet = diet;
+}
 
 
   
