@@ -1,7 +1,8 @@
 #results-section {
   font-family: "Amatic SC", cursive;
-  display: flex;
-  justify-content: center;
+  // display: flex;
+  //the js controls whether the section is display (display: flex) or
+  //if the display is hidden (dsiplay: none);
 
   #results-container {
     display: grid;

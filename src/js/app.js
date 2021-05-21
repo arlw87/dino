@@ -94,9 +94,30 @@ window.onload = (event) => {
 
             console.log(tileArray);
 
+            const resultSection = document.querySelector('#results-container');
             //go through the array and call the generate html method to add the tiles to the DOM
+            tileArray.forEach( (tile) => {
+                resultSection.insertAdjacentHTML('beforeend', tile.generateHTML());
+            });
 
-            //display the tiles 
+            //hide the form
+            document.querySelector('#form-section').classList.toggle('display-hide');
+            document.querySelector('#form-section').classList.toggle('display-show');
+            
+            //display the results section
+            document.querySelector('#results-section').classList.toggle('display-hide');
+            document.querySelector('#results-section').classList.toggle('display-show');
+
+
+            //for testing
+            // const htmlString = `<div class="result-card shadow">
+            // <img src=${imageObject.triceratops} class="image-container"></img>
+            // <h3>Triceratops</h3>
+            // <div class="text-container">First discovered in 1889 by Othniel Charles Marsh</div>
+            // </div>`
+
+            
+            
 
         });
 
@@ -201,9 +222,15 @@ function Tile(name, image, fact){
 
 Tile.prototype = {
     generateHTML: function(){
-        return `SomeHTMLHere`;
+        return `<div class="result-card shadow">
+        <img src=${this.image} class="image-container"></img>
+        <h3>${this.name}</h3>
+        <div class="text-container">${this.fact}</div>
+        </div>`;
     }
 }
+
+
 
 
 

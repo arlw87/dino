@@ -5,37 +5,16 @@ $accent-color: rgb(243, 114, 50);
 #form-section {
   width: 100%;
   height: 100%;
-
-  display: flex;
+  // display: flex;
   flex-direction: column;
   align-items: center;
 
-  #title-section {
-    display: flex;
-
-    h1 {
-      text-align: center;
-      font-size: $title-font;
-      margin: 0;
-      font-family: "Amatic SC", cursive;
-      font-weight: 700;
-      margin: 10px;
-      font-family: $fun-text;
-    }
-
-    img {
-      height: $title-font;
-      width: auto;
-      margin: auto 0;
-    }
-  }
-
-  > h2 {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 500;
-    margin: 10px;
-  }
+  // > h2 {
+  //   text-align: center;
+  //   font-size: 2rem;
+  //   font-weight: 500;
+  //   margin: 10px;
+  // }
 
   form {
     background-color: #ffffff;

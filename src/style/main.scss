@@ -25,3 +25,32 @@ main {
   -webkit-box-shadow: 2px 3px 6px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 2px 3px 6px 2px rgba(0, 0, 0, 0.3);
 }
+
+.display-hide {
+  display: none;
+}
+
+.display-show {
+  display: flex;
+}
+
+#title-section {
+  display: flex;
+  justify-content: center;
+
+  h1 {
+    text-align: center;
+    font-size: $title-font;
+    margin: 0;
+    font-family: "Amatic SC", cursive;
+    font-weight: 700;
+    margin: 10px;
+    font-family: $fun-text;
+  }
+
+  img {
+    height: $title-font;
+    width: auto;
+    margin: auto 0;
+  }
+}
