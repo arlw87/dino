@@ -3,7 +3,10 @@
   // display: flex;
   //the js controls whether the section is display (display: flex) or
   //if the display is hidden (dsiplay: none);
-  padding: 2% 0;
+  padding-bottom: 2%;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100vw;
 
   #results-container {
     display: grid;
@@ -40,5 +43,16 @@
         margin-bottom: 1rem;
       }
     }
+  }
+
+  button {
+    margin: 20px 0 20px 0;
+    font-family: $fun-text;
+    background-color: $accent-color;
+    border: none;
+    font-size: 3rem;
+    padding: 0 20px;
+    width: auto;
+    margin-top: 2%;
   }
 }

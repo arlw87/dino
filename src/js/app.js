@@ -107,14 +107,7 @@ window.onload = (event) => {
                 resultSection.insertAdjacentHTML('beforeend', card.generateHTML());
             });
 
-            //hide the form
-            document.querySelector('#form-section').classList.toggle('display-hide');
-            document.querySelector('#form-section').classList.toggle('display-show');
-            
-            //display the results section
-            document.querySelector('#results-section').classList.toggle('display-hide');
-            document.querySelector('#results-section').classList.toggle('display-show');
-                     
+            toggleFormResults();           
 
         });
 
@@ -270,9 +263,23 @@ function generateBackgroundColor(){
 }
 
 
+//reset the form
 
+document.querySelector('#reset').addEventListener('click', (event) => {
+    //remove elements from the tiles from the previous results grid
+    document.querySelector('#results-container').innerHTML = '';
+    toggleFormResults();
+})
 
-
+function toggleFormResults(){
+    //hide the form
+    document.querySelector('#form-section').classList.toggle('display-hide');
+    document.querySelector('#form-section').classList.toggle('display-show');
+    
+    //display the results section
+    document.querySelector('#results-section').classList.toggle('display-hide');
+    document.querySelector('#results-section').classList.toggle('display-show');
+}
 
 
   
