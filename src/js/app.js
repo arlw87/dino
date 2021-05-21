@@ -77,6 +77,8 @@ window.onload = (event) => {
 
             })();
 
+            const color = (generateBackgroundColor)();
+
             //generate human object
             const human = new Human(formData.name, formData.height, formData.weight, formData.diet, imageObject.human);
             
@@ -84,7 +86,7 @@ window.onload = (event) => {
             //ignore the pigeon tile fact for now
             const tileArray = dinoArray.map((dino) => {
                 const randomFact = generateRandomFact(dino, human);
-                return new Tile(dino.species, dino.image, randomFact);
+                return new Tile(dino.species, dino.image, randomFact, color());
             });
 
             //randomise the array
@@ -92,7 +94,7 @@ window.onload = (event) => {
             //const randomisedTileArray = tileArray;
 
 
-            const humanTile = new Tile(human.name, human.image, "");
+            const humanTile = new Tile(human.name, human.image, "", color());
 
             //these will need to be put in the right order
             const newArray = [...randomisedTileArray.slice(0,4), humanTile, ...randomisedTileArray.slice(4,8)];
@@ -209,16 +211,17 @@ function Human(name, height, weight, diet, image){
 
 //function constructor for the tiles. 
 //the tiles will dispplay the name, image and a fact 
-function Tile(name, image, fact){
+function Tile(name, image, fact, backgroundColor){
     this.name = name;
     this.image = image;
     this.fact = fact;
+    this.backgroundColor = backgroundColor;
 }
 
 Tile.prototype = {
     generateHTML: function(){
         return `<div class="result-card shadow">
-        <img src=${this.image} class="image-container"></img>
+        <img src=${this.image} style="background-color: ${this.backgroundColor}" class="image-container"></img>
         <h3>${this.name}</h3>
         <div class="text-container">${this.fact}</div>
         </div>`;
@@ -245,6 +248,25 @@ function randomiseArray(anArray){
     }
 
     return tempArray;
+}
+
+function generateBackgroundColor(){
+
+    const colorArray = ['#0A9A8C', '#DD7B5E', '#4FB4C2', '#F4BB67', '#BA456C','#8265B4', '#A1C479', '#6579C7', '#6BAA6A'];
+    let index = 0;
+
+    return function(){
+
+        let colorReturn = colorArray[index];
+
+        if (index === 8){
+            index = 0
+        } else {
+            index ++;
+        }
+
+        return colorReturn;
+    }
 }
 
 
