@@ -87,17 +87,22 @@ window.onload = (event) => {
                 return new Tile(dino.species, dino.image, randomFact);
             });
 
+            //randomise the array
+            const randomisedTileArray = randomiseArray(tileArray);
+            //const randomisedTileArray = tileArray;
+
+
             const humanTile = new Tile(human.name, human.image, "");
 
             //these will need to be put in the right order
-            tileArray.push(humanTile);
+            const newArray = [...randomisedTileArray.slice(0,4), humanTile, ...randomisedTileArray.slice(4,8)];
 
-            console.log(tileArray);
+            console.log(newArray);
 
             const resultSection = document.querySelector('#results-container');
             //go through the array and call the generate html method to add the tiles to the DOM
-            tileArray.forEach( (tile) => {
-                resultSection.insertAdjacentHTML('beforeend', tile.generateHTML());
+            newArray.forEach( (card) => {
+                resultSection.insertAdjacentHTML('beforeend', card.generateHTML());
             });
 
             //hide the form
@@ -107,17 +112,7 @@ window.onload = (event) => {
             //display the results section
             document.querySelector('#results-section').classList.toggle('display-hide');
             document.querySelector('#results-section').classList.toggle('display-show');
-
-
-            //for testing
-            // const htmlString = `<div class="result-card shadow">
-            // <img src=${imageObject.triceratops} class="image-container"></img>
-            // <h3>Triceratops</h3>
-            // <div class="text-container">First discovered in 1889 by Othniel Charles Marsh</div>
-            // </div>`
-
-            
-            
+                     
 
         });
 
@@ -229,6 +224,30 @@ Tile.prototype = {
         </div>`;
     }
 }
+
+function randonNumber(maxIndex){
+    return Math.floor(Math.random() * (maxIndex)); 
+}
+
+function randomiseArray(anArray){
+    console.log('randomise Array function');
+    
+    console.log(anArray);
+    const tempArray = [];
+    let tempIndex = 0;
+
+    while (anArray.length > 0){
+        let i = randonNumber(anArray.length)
+        tempArray[tempIndex] = anArray[i];
+        anArray.splice(i, 1);
+        tempIndex ++;
+
+    }
+
+    return tempArray;
+}
+
+
 
 
 
