@@ -64,9 +64,13 @@ window.onload = (event) => {
                 const dietInput = document.querySelector('#diet');
 
                 const name = nameInput.value;
-                const height = parseInt(heightInput.value);
-                const weight = parseInt(weightInput.value);
+                const heightInCm = parseInt(heightInput.value);
+                const weightInKg = parseInt(weightInput.value);
                 const diet = dietInput.value;
+
+                //convert from metric (user input) to imperial (json Data)
+                const height = cmToInches(heightInCm);
+                const weight = kgToPounds(weightInKg);
 
                 return {
                     name: name,
@@ -162,24 +166,39 @@ Dino.prototype = {
     //three methods to compare human data to dino data
     compareHeight: function(humanHeight){
 
-        console.log(`${humanHeight}, is human height`);
-        console.log(`${this.height}, is dino height`);
-
         const sizeDifference = this.height / humanHeight;
+        let value = 0;
+
+        //if greater than 5 then round to nearest integer, if less than fix to 1 decimal place
+        if (sizeDifference > 5){
+            value = Math.round(sizeDifference);
+        } else {
+            value = sizeDifference.toFixed(1);
+        }
 
         if (sizeDifference > 1){
-            return `${this.species} is ${sizeDifference} times taller than you`;
+            return `${this.species} is ${value} times taller than you`;
         } else {
-            return `${this.species} is ${humanHeight / this.height} times smaller than you`;
+            return `${this.species} is ${(1/value).toFixed(1)} times smaller than you`;
         }
     },
 
     compareWeight: function(humanWeight){
         const sizeDifference = this.weight / humanWeight;
-        if (sizeDifference > 1){
-            return `${this.species} is ${sizeDifference} times heavier than you`;
+
+        let value = 0;
+
+        //if greater than 5 then round to nearest integer, if less than fix to 1 decimal place
+        if (sizeDifference > 5){
+            value = Math.round(sizeDifference);
         } else {
-            return `${this.species} is ${humanWeight / this.height} times lighter than you`;
+            value = sizeDifference.toFixed(1);
+        }
+
+        if (sizeDifference > 1){
+            return `${this.species} is ${value} times heavier than you`;
+        } else {
+            return `${this.species} is ${(1/value).toFixed(1)} times lighter than you`;
         }
     },
 
@@ -315,3 +334,14 @@ function toggleFormResults(){
 
 
 // On button click, prepare and display infographic
+
+
+//helper functions
+
+function cmToInches(size){
+    return size / 2.54; 
+}
+
+function kgToPounds(size){
+    return size * 2.205; 
+}
