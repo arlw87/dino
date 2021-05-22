@@ -1,5 +1,8 @@
 # Dino Infographic 
 
+![web application](dino.gif)
+_Dino Infographic Application in operation
+
 A fun front end web application that compares the human inputted information to the varies dinosaurs. The author developed the interface of the application using HTML and Sass but their main focus of the application was the Javascript logic behind the application. 
 
 It takes advantages of:
@@ -8,6 +11,8 @@ It takes advantages of:
 - Constructor Functions
 - IIFE (Immediatley Invoked Function Expressions)
 - The Revealing Module Pattern
+
+The project is designed to be used on a desktop screen. 
 
 ## How To Use
 
@@ -26,6 +31,8 @@ Note: The fact displayed for each dinoasur are choosen at random from 6 availabl
 - A comparsion of the human and dinosaurs height
 - A comparsion of the human and dinosaurs weight
 - A comparsion of the human and dinosaurs diet 
+
+This exception to this is the human result card that doesnt display a fact and the pigeon card that always displayed the same fact (as per the project specification).
 
 ## How to Install
 
