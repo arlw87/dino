@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Dino Infographic</title>
+        <meta name="viewport" content="width=device-width", initial-sale=1/>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+    <script defer src="main.js"></script></head>
+    <body>
+        <main>
+            <section id="title-section">
+                <img src='ccebdf9f14200b74a0e0.png'>
+                <h1> Dinosaurs! </h1>
+                <img src='552846c4ddcf71a22f77.png'>
+            </section>
+            <section id="form-section" class="display-show">
+                <!-- <h2>How do YOU compare?</h2> -->
+                <form class="shadow">
+                    <h3>Enter your human stats</h3>
+                    <div>
+                        <label for="name">Name</label>
+                        <input id="name" type="text" required="required">
+                    </div>
+                    <div id="metrics">
+                        <div>
+                            <label for="height">Height</label>
+                            <input id="height" type="text" required="required" placeholder="in cm">
+                        </div>
+                        <div>
+                            <label for="weight">Weight</label>
+                            <input id="weight" type="text" required="required" placeholder="in kg">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="diet">Diet</label>
+                        <select id="diet" required="required" name='diet'>
+                            <option value="" disabled selected></option>
+                            <option value="herbavor">Herbavor</option>
+                            <option value="carnivor">Carnivor</option>
+                        </select>    
+                    </div>
+                    <input id="compareMe" type="submit" value='Compare Me!'></input>
+                </form>
+            </section>
+            <section id="results-section" class="display-hide">
+                <div id="results-container">
+                </div>
+                <button id="reset" class="shadow">
+                    Reset!
+                </button>
+            </section>
+        </main>
+    </body>
+</html>
