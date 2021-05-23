@@ -305,7 +305,6 @@ function randonNumber(maxIndex){
  * Randomise the order of an array and return a new randomised array
  */
 function randomiseArray(anArray){
-    console.log('randomise Array function');
     
     const tempArray = [];
     let tempIndex = 0;
