@@ -1,12 +1,12 @@
+@use "variables";
+
 #results-section {
-  font-family: "Amatic SC", cursive;
-  // display: flex;
+  font-family: variables.$fun-text;
   //the js controls whether the section is display (display: flex) or
   //if the display is hidden (dsiplay: none);
   padding-bottom: 2%;
   flex-direction: column;
   align-items: center;
-  //max-width: 98vw;
   margin: 0;
 
   #results-container {
@@ -14,7 +14,6 @@
     grid-template-rows: repeat(3, auto);
     grid-template-columns: repeat(3, 20%);
     grid-gap: 2rem;
-    //width: 100%;
     justify-content: center;
 
     .result-card {
@@ -35,7 +34,6 @@
         width: 100%;
         height: auto;
         margin: 0 auto;
-        background-color: burlywood;
       }
 
       .text-container {
@@ -49,8 +47,8 @@
 
   button {
     margin: 20px 0 20px 0;
-    font-family: $fun-text;
-    background-color: $accent-color;
+    font-family: variables.$fun-text;
+    background-color: variables.$accent-color;
     border: none;
     font-size: 3rem;
     padding: 0 20px;
